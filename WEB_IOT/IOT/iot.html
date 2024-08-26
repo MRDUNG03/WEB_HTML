@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="FET-IUH IoT Team">
+    <meta name="dcterms.created" content="T6, 14 Thg6 2019 01:37:13 GMT">
+    <meta name="description" content="Design Platform for IoT Laboratory">
+    <meta name="keywords" content="Internet of things, Lorawan, Raspberry Pi 4">
+    <link rel="stylesheet" href="main.css" />
+    <title>Sample Website of FET-IUH IoT Team</title>
+</head>
+
+<body>
+    <div class="time-display">
+        <p>Current Time: <span id="currentTime">--:--:--</span></p>
+    </div>
+    <div class="display-values">
+        <p>Temperature: <span id="temperature">--°C</span></p>
+        <p>Humidity: <span id="humidity">--%</span></p>
+    </div>
+    <div align=center>
+        <h1>FET-IUH IoT Team</h1>
+        <p>
+        <h2>NHÓM_2_ST6</h2>
+        <h4> Design Platform for IoT Laboratory</h4>
+        </p>
+    </div>
+    <div align=center>
+
+        <p>
+        <h3>CONTROL BUTTON</h3>
+        <button onclick="LED()">ON</button>
+        <button onclick="BUZZER()">ON</button>
+        <button onclick="RELAY()">ON</button>
+        <button onclick="auto-manual()">Auto/Manual</button>
+        </p>
+    </div>
+    <div align=center>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/2631002/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=100&type=line"></iframe>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/2631002/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=100&type=line"></iframe>
+    </div>
+    <div align=center>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/2631002/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=100&type=line"></iframe>
+        <iframe width="450" height="260" style="border: 1px solid #cccccc;"
+            src="https://thingspeak.com/channels/2631002/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=100&type=line"></iframe>
+    </div>
+
+    </div>
+
+    <script>
+        document.getElementById("temperature").innerText = "25°C";
+        document.getElementById("humidity").innerText = "60%";
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById("currentTime").innerText = timeString;
+        }
+        setInterval(updateTime, 1000);
+        var url = "http://api.thingspeak.com/update?";
+    </script>
+
+</html>
+</body>

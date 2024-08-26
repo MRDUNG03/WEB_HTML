@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .controls {
+            margin-bottom: 30px;
+        }
+        .controls button {
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+        .status-icons {
+            margin: 30px 0;
+        }
+        .status-icons img {
+            width: 50px;
+            margin: 0 20px;
+        }
+        .display-values {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .time-display {
+            font-size: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Web Interface</h1>
+
+    <div class="controls">
+        <button id="btnAuto">Auto</button>
+        <button id="btnManual">Manual</button>
+        <button id="btnLED">LED</button>
+        <button id="btnBuzzer">Buzzer</button>
+        <button id="btnRelay">Relay</button>
+    </div>
+
+    <div class="display-values">
+        <p>Temperature: <span id="temperature">--°C</span></p>
+        <p>Humidity: <span id="humidity">--%</span></p>
+    </div>
+
+    <div class="status-icons">
+        <img src="led-icon.png" alt="LED Status" id="ledStatus">
+        <img src="buzzer-icon.png" alt="Buzzer Status" id="buzzerStatus">
+        <img src="relay-icon.png" alt="Relay Status" id="relayStatus">
+    </div>
+
+    <div class="time-display">
+        <p>Current Time: <span id="currentTime">--:--:--</span></p>
+    </div>
+</div>
+
+<script>
+    // Placeholder JavaScript for updating temperature, humidity, and time.
+    document.getElementById("temperature").innerText = "25°C";
+    document.getElementById("humidity").innerText = "60%";
+    
+    // Set current time
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString();
+        document.getElementById("currentTime").innerText = timeString;
+    }
+    setInterval(updateTime, 1000);
+</script>
+
+</body>
+</html>
